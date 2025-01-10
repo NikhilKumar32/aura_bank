@@ -40,4 +40,4 @@ Make sure you have a code editor (e.g., VS Code) and a browser installed.
 ### Installation
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/aura-bank.git
+   git clone https://github.com/NikhilKumar32/aura-bank.git
