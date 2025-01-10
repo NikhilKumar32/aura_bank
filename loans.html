@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loans - Aura Bank</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .loan-container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #0d47a1;
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .loan-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .loan-type {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .loan-type:hover {
+      transform: translateY(-10px);
+    }
+
+    .loan-type h3 {
+      color: #0d47a1;
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .loan-type p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .loan-type button {
+      background: linear-gradient(90deg, #ff6f00, #f57c00);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .loan-type button:hover {
+      background-color: #e65100;
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 20px 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo" style="height: 50px;">
+        <h1 style="display: inline-block; margin-left: 15px; font-size: 24px; color: white;">Aura Bank</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accounts.html">Accounts</a></li>
+        <li><a href="loans.html">Loans</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="loan-container">
+    <h2>Explore Our Loan Options</h2>
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Personal Loan</h3>
+        <p>Quick, hassle-free loans for your personal needs, with flexible repayment options and competitive rates.</p>
+        <button>Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Debt Consolidation Loan</h3>
+        <p>Manage all your debts in one easy loan with a lower interest rate, making your finances more manageable.</p>
+        <button>Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Mortgage</h3>
+        <p>Buy your dream home with our mortgage loans, featuring low rates and extended repayment periods.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Home Equity Loan</h3>
+        <p>Use the equity in your home to fund renovations, investments, or any large expenses with great rates.</p>
+        <button>Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Student Loan</h3>
+        <p>Financing your education is easier with low-interest student loans and flexible repayment plans.</p>
+        <button>Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Car Loan</h3>
+        <p>Drive the car you’ve always wanted with affordable car loans, offering quick approval and competitive rates.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Small Business Loan</h3>
+        <p>Grow your business with financial support tailored to your needs and designed to fuel your entrepreneurial goals.</p>
+        <button>Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Credit Builder Loan</h3>
+        <p>Improve your credit score with an easy-to-manage credit builder loan that works for you.</p>
+        <button>Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Payday Loan</h3>
+        <p>Access short-term loans with minimal requirements and a quick approval process, ideal for immediate needs.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Pawnshop Loan</h3>
+        <p>Quick loans against valuables to get you cash in hand when you need it the most. Simple process, immediate results.</p>
+        <button>Learn More</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Aura Bank. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loans - Aura Bank</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8fb;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideIn 1s ease-out;
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .auth-buttons button:hover {
+      transform: scale(1.1);
+      background-color: #e65100;
+    }
+
+    .loan-container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      color: #0d47a1;
+      text-align: center;
+      font-size: 30px;
+      margin-bottom: 20px;
+      animation: fadeInText 2s ease-in-out;
+    }
+
+    @keyframes fadeInText {
+      0% {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .loan-types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .loan-type {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+
+    .loan-type:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .loan-type h3 {
+      color: #0d47a1;
+      font-size: 24px;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    .loan-type p {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.5;
+      transition: color 0.3s ease;
+    }
+
+    .loan-type button {
+      background: linear-gradient(90deg, #ff6f00, #f57c00);
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+    }
+
+    .loan-type button:hover {
+      background-color: #e65100;
+      transform: scale(1.1);
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 20px 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    /* Additional Animations for Buttons */
+    .btn-animate {
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .btn-animate:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo" style="height: 50px;">
+        <h1 style="display: inline-block; margin-left: 15px; font-size: 24px; color: white;">Aura Bank</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accounts.html">Accounts</a></li>
+        <li><a href="loans.html">Loans</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <button onclick="window.location.href='login.html'" class="btn-animate">Login</button>
+        <button onclick="window.location.href='signup.html'" class="btn-animate">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="loan-container">
+    <h2>Explore Our Loan Options</h2>
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Personal Loan</h3>
+        <p>Quick, hassle-free loans for your personal needs, with flexible repayment options and competitive rates.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Debt Consolidation Loan</h3>
+        <p>Manage all your debts in one easy loan with a lower interest rate, making your finances more manageable.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Mortgage</h3>
+        <p>Buy your dream home with our mortgage loans, featuring low rates and extended repayment periods.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+    </div>
+
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Home Equity Loan</h3>
+        <p>Use the equity in your home to fund renovations, investments, or any large expenses with great rates.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Student Loan</h3>
+        <p>Financing your education is easier with low-interest student loans and flexible repayment plans.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Car Loan</h3>
+        <p>Drive the car you’ve always wanted with affordable car loans, offering quick approval and competitive rates.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+    </div>
+
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Small Business Loan</h3>
+        <p>Grow your business with financial support tailored to your needs and designed to fuel your entrepreneurial goals.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Credit Builder Loan</h3>
+        <p>Improve your credit score with an easy-to-manage credit builder loan that works for you.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+
+      <div class="loan-type">
+        <h3>Payday Loan</h3>
+        <p>Access short-term loans with minimal requirements and a quick approval process, ideal for immediate needs.</p>
+        <button class="btn-animate">Learn More</button>
+      </div>
+    </div>
+
+    <div class="loan-types">
+      <div class="loan-type">
+        <h3>Pawnshop Loan</h3>
+        <p>Quick

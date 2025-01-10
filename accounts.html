@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accounts - Aura Bank</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+    }
+
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 50px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul.nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    ul.nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h2 {
+      color: #0d47a1;
+      text-align: center;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .form-container input,
+    .form-container select,
+    .form-container button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .form-container button {
+      background: linear-gradient(90deg, #ff6f00, #f57c00);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .form-container button:hover {
+      transform: scale(1.1);
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+    }
+
+    .output-box {
+      background: #e3f2fd;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 10px 20px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo">
+        <h1>Aura Bank</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="accounts.html">Accounts</a></li>
+        <li><a href="loans.html">Loans</a></li>
+        <li><a href="transactions.html">Transactions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='signup.html'">Sign Up</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Open a New Account</h2>
+    <div class="form-container">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
+
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" required>
+
+      <label for="gender">Gender:</label>
+      <select id="gender" required>
+        <option value="">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="others">Others</option>
+      </select>
+
+      <button id="generate-account-btn">Generate Account Number</button>
+
+      <div class="output-box" id="account-number-box" style="display: none;">
+        Your Account Number: <span id="account-number"></span>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Aura Bank. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("generate-account-btn").addEventListener("click", function () {
+      const accountNumber = generateAccountNumber();
+      const accountBox = document.getElementById("account-number-box");
+      document.getElementById("account-number").textContent = formatAccountNumber(accountNumber);
+      accountBox.style.display = "block";
+    });
+
+    function generateAccountNumber() {
+      let accountNumber = "";
+      for (let i = 0; i < 16; i++) {
+        accountNumber += Math.floor(Math.random() * 10).toString();
+      }
+      return accountNumber;
+    }
+
+    function formatAccountNumber(accountNumber) {
+      return accountNumber.match(/.{1,4}/g).join(" ");
+    }
+  </script>
+</body>
+</html>

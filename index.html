@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aura Bank</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f8fb;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(90deg, #0d47a1, #1976d2);
+      color: white;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .logo h1 {
+      display: inline;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      padding: 5px 10px;
+    }
+
+    .auth-buttons {
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth-buttons button {
+      border: none;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, #ff9800, #f57c00);
+      color: white;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .auth-buttons button:hover {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      transform: scale(1.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 50px;
+      background-color: #1976d2;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 50%;
+    }
+
+    .hero-image {
+      max-width: 40%;
+      animation: bounceInRight 1.5s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #ff6f00, #f57c00);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+
+    .btn-primary:hover {
+      transform: scale(1.1);
+    }
+
+    /* Features Section */
+    .features {
+      padding: 40px 20px;
+      text-align: center;
+      background: #f1f5f8;
+    }
+
+    .features h2 {
+      color: #0d47a1;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    /* Statistics Section */
+    .statistics {
+      background: #e3f2fd;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .stat-box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 200px;
+      text-align: center;
+      animation: fadeInUp 1s;
+    }
+
+    .stat-box h3 {
+      font-size: 24px;
+      margin: 0;
+      color: #0d47a1;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d47a1;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo" style="height: 50px;">
+      <h1 style="display: inline-block; margin-left: 15px; font-size: 24px; color: white;">Aura Bank</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="accounts.html">Accounts</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="transactions.html">Transactions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <button onclick="window.location.href='login.html'">Login</button>
+      <button onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
+  </nav>
+</header> 
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to Aura Bank</h1>
+        <p>Your trusted partner for secure and efficient banking solutions.</p>
+        <button class="btn-primary" onclick="navigateTo('accounts.html')">Explore Services</button>
+      </div>
+      <img src="https://images.unsplash.com/photo-1547738765-ee82a7f07da8?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Hero image related to banking" class="hero-image">
+    </section>
+
+    <section class="features">
+      <h2>Why Choose Us?</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzQ3N3wwfDF8c2VhcmNofDF8fHNlY3VyaXR5fGVufDB8fHx8MTY3NzkzNzk2Mg&ixlib=rb-4.0.3&q=80&w=400" alt="Security">
+          <h3>Advanced Security</h3>
+          <p>We prioritize your safety with cutting-edge technology.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzQ3N3wwfDF8c2VhcmNofDJ8fGZhc3QlMjBhY2Nlc3N8ZW58MHx8fHwxNjc3OTM3OTc3&ixlib=rb-4.0.3&q=80&w=400" alt="Support">
+          <h3>24/7 Assistance</h3>
+          <p>Reach out to our team anytime for any queries or issues.</p>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1573164574396-6a9b1b8e1f20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzQ3N3wwfDF8c2VhcmNofDR8fHJld2FyZHxlbnwwfHx8fDE2Nzc5MzgwMDQ&ixlib=rb-4.0.3&q=80&w=400" alt="Benefits">
+          <h3>Exclusive Benefits</h3>
+          <p>Enjoy rewards tailored to your needs and preferences.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aura Bank. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+  </footer>
+</body>
+</html>
