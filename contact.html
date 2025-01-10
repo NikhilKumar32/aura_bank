@@ -8,37 +8,71 @@
   <script defer src="script.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f8fb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
+    /* Header */
     header {
       background: linear-gradient(90deg, #0d47a1, #1976d2);
       color: white;
       padding: 10px 20px;
       position: sticky;
       top: 0;
-    }
-
-    nav {
+      z-index: 1000;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      animation: slideDown 0.5s ease-in-out;
     }
 
-    ul.nav-links {
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 15px;
     }
 
-    ul.nav-links li a {
-      color: white;
+    .nav-links li a {
       text-decoration: none;
-      font-weight: bold;
+      color: white;
+      font-size: 14px;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #ff9800;
     }
 
     .auth-buttons {
@@ -47,17 +81,24 @@
     }
 
     .auth-buttons button {
-      background: linear-gradient(90deg, #f57c00, #ff6f00);
-      color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 8px 15px;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, #ff9800, #f57c00);
+      color: white;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .auth-buttons button:hover {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      transform: scale(1.1);
     }
 
     .container {
       padding: 20px;
+      flex: 1;
     }
 
     h2 {
@@ -125,31 +166,27 @@
       color: white;
       text-align: center;
       padding: 10px 20px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      margin-top: auto;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="logo">
-        <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo" style="height: 50px;">
-        <h1 style="display: inline-block; margin-left: 15px; font-size: 24px; color: white;">Aura Bank</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="accounts.html">Accounts</a></li>
-        <li><a href="loans.html">Loans</a></li>
-        <li><a href="transactions.html">Transactions</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="auth-buttons">
-        <button onclick="window.location.href='login.html'">Login</button>
-        <button onclick="window.location.href='signup.html'">Sign Up</button>
-      </div>
-    </nav>
+    <div class="logo">
+      <img src="https://images.unsplash.com/photo-1658702983847-e974f4ed2d55?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8V0hJVEUlMjBBQlNUUkFDVHxlbnwwfHwwfHx8MA%3D%3D" alt="Bank Logo">
+      <h1>Aura Bank</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="accounts.html">Accounts</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="transactions.html">Transactions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <button onclick="window.location.href='login.html'">Login</button>
+      <button onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
   </header>
 
   <div class="container">
