@@ -6,38 +6,73 @@
   <title>Login - Aura Bank</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f8fb;
       margin: 0;
       padding: 0;
+      background-color: #f4f8fb;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
+    /* Header */
     header {
       background: linear-gradient(90deg, #0d47a1, #1976d2);
       color: white;
       padding: 10px 20px;
       position: sticky;
       top: 0;
-    }
-
-    nav {
+      z-index: 1000;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      animation: slideDown 0.5s ease-in-out;
     }
 
-    ul.nav-links {
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .logo h1 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 15px;
     }
 
-    ul.nav-links li a {
-      color: white;
+    .nav-links li a {
       text-decoration: none;
-      font-weight: bold;
+      color: white;
+      font-size: 14px;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #ff9800;
     }
 
     .auth-buttons {
@@ -46,30 +81,48 @@
     }
 
     .auth-buttons button {
-      background: linear-gradient(90deg, #f57c00, #ff6f00);
-      color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 8px 15px;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, #ff9800, #f57c00);
+      color: white;
+      transition: transform 0.3s, background 0.3s;
     }
 
-    .login-container {
-      max-width: 400px;
-      margin: 50px auto;
+    .auth-buttons button:hover {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      transform: scale(1.1);
+    }
+
+    .container {
       padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
     }
 
-    .login-container h2 {
+    h2 {
       color: #0d47a1;
       text-align: center;
     }
 
-    .login-container input {
+    .login-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-form label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .login-form input {
       width: 100%;
       padding: 10px;
       margin-bottom: 15px;
@@ -78,20 +131,14 @@
       font-size: 14px;
     }
 
-    .login-container button {
-      width: 100%;
+    .login-form button {
       background: linear-gradient(90deg, #ff6f00, #f57c00);
       color: white;
       border: none;
-      padding: 12px;
+      padding: 10px 15px;
       border-radius: 5px;
       cursor: pointer;
       font-weight: bold;
-      transition: 0.3s ease;
-    }
-
-    .login-container button:hover {
-      background: #e65100;
     }
 
     footer {
@@ -99,42 +146,54 @@
       color: white;
       text-align: center;
       padding: 10px 20px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      margin-top: auto;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="logo">
-        <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo" style="height: 50px;">
-        <h1 style="display: inline-block; margin-left: 15px; font-size: 24px; color: white;">Aura Bank</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="accounts.html">Accounts</a></li>
-        <li><a href="loans.html">Loans</a></li>
-        <li><a href="transactions.html">Transactions</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="auth-buttons">
-        <button onclick="window.location.href='login.html'">Login</button>
-        <button onclick="window.location.href='signup.html'">Sign Up</button>
-      </div>
-    </nav>
+    <div class="logo">
+      <img src="https://images.unsplash.com/photo-1658702983847-e974f4ed2d55?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8V0hJVEUlMjBBQlNUUkFDVHxlbnwwfHwwfHx8MA%3D%3D" alt="Bank Logo">
+      <h1>Aura Bank</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="accounts.html">Accounts</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="transactions.html">Transactions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <button onclick="window.location.href='login.html'">Login</button>
+      <button onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
   </header>
 
-  <div class="login-container">
-    <h2>Login to Aura Bank</h2>
-    <input type="text" placeholder="Username" required>
-    <input type="password" placeholder="Password" required>
-    <button type="submit">Login</button>
+  <div class="container">
+    <h2>Login to Your Account</h2>
+    <div class="login-form">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your Email">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Your Password">
+
+      <button type="submit">Login</button>
+    </div>
   </div>
 
   <footer>
     <p>&copy; 2025 Aura Bank. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
   </footer>
 </body>
 </html>
