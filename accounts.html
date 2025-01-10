@@ -6,8 +6,10 @@
   <title>Accounts - Aura Bank</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    /* General Styles */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -15,40 +17,60 @@
       background-color: #f4f8fb;
     }
 
+    /* Header */
     header {
       background: linear-gradient(90deg, #0d47a1, #1976d2);
       color: white;
       padding: 10px 20px;
       position: sticky;
       top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: slideDown 0.5s ease-in-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
     }
 
     .logo {
       display: flex;
       align-items: center;
+      gap: 10px;
     }
 
     .logo img {
-      width: 50px;
-      margin-right: 10px;
+      height: 40px;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .logo h1 {
+      font-size: 20px;
+      margin: 0;
     }
 
-    ul.nav-links {
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 15px;
     }
 
-    ul.nav-links li a {
-      color: white;
+    .nav-links li a {
       text-decoration: none;
-      font-weight: bold;
+      color: white;
+      font-size: 14px;
+      padding: 5px 10px;
+      transition: color 0.3s;
+    }
+
+    .nav-links li a:hover {
+      color: #ff9800;
     }
 
     .auth-buttons {
@@ -57,22 +79,42 @@
     }
 
     .auth-buttons button {
-      background: linear-gradient(90deg, #f57c00, #ff6f00);
-      color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 5px;
+      padding: 8px 15px;
       cursor: pointer;
-      font-weight: bold;
+      font-size: 14px;
+      border-radius: 5px;
+      background: linear-gradient(90deg, #ff9800, #f57c00);
+      color: white;
+      transition: transform 0.3s, background 0.3s;
     }
 
+    .auth-buttons button:hover {
+      background: linear-gradient(90deg, #f57c00, #ff6f00);
+      transform: scale(1.1);
+    }
+
+    /* Form Section */
     .container {
-      padding: 20px;
+      padding: 40px 20px;
+      background-color: #f1f5f8;
     }
 
     h2 {
       color: #0d47a1;
       text-align: center;
+      animation: fadeInDown 1s;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .form-container {
@@ -82,6 +124,18 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .form-container label {
@@ -102,18 +156,28 @@
       font-size: 14px;
     }
 
+    .form-container input,
+    .form-container select {
+      transition: border-color 0.3s;
+    }
+
+    .form-container input:focus,
+    .form-container select:focus {
+      border-color: #1976d2;
+      outline: none;
+    }
+
     .form-container button {
       background: linear-gradient(90deg, #ff6f00, #f57c00);
       color: white;
       border: none;
       cursor: pointer;
       font-size: 16px;
-      transition: transform 0.3s, background 0.3s;
+      transition: transform 0.3s;
     }
 
     .form-container button:hover {
       transform: scale(1.1);
-      background: linear-gradient(90deg, #f57c00, #ff6f00);
     }
 
     .output-box {
@@ -123,38 +187,50 @@
       text-align: center;
       font-weight: bold;
       margin-top: 10px;
+      display: none;
+      animation: fadeIn 1s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     footer {
       background: #0d47a1;
       color: white;
       text-align: center;
-      padding: 10px 20px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      padding: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
   <header>
-    <nav>
-      <div class="logo">
-        <img src="http://bit.ly/41Y0Nbn" alt="Bank Logo">
-        <h1>Aura Bank</h1>
-      </div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="accounts.html">Accounts</a></li>
-        <li><a href="loans.html">Loans</a></li>
-        <li><a href="transactions.html">Transactions</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="auth-buttons">
-        <button onclick="window.location.href='login.html'">Login</button>
-        <button onclick="window.location.href='signup.html'">Sign Up</button>
-      </div>
-    </nav>
+    <div class="logo">
+      <img src="https://images.unsplash.com/photo-1658702983847-e974f4ed2d55?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8V0hJVEUlMjBBQlNUUkFDVHxlbnwwfHwwfHx8MA%3D%3D" alt="Bank Logo">
+      <h1>Aura Bank</h1>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="accounts.html">Accounts</a></li>
+      <li><a href="loans.html">Loans</a></li>
+      <li><a href="transactions.html">Transactions</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <button onclick="window.location.href='login.html'">Login</button>
+      <button onclick="window.location.href='signup.html'">Sign Up</button>
+    </div>
   </header>
 
   <div class="container">
@@ -176,7 +252,7 @@
 
       <button id="generate-account-btn">Generate Account Number</button>
 
-      <div class="output-box" id="account-number-box" style="display: none;">
+      <div class="output-box" id="account-number-box">
         Your Account Number: <span id="account-number"></span>
       </div>
     </div>
@@ -184,6 +260,10 @@
 
   <footer>
     <p>&copy; 2025 Aura Bank. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
   </footer>
 
   <script>
