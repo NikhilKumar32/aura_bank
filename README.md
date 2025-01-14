@@ -1,7 +1,5 @@
 # Aura Bank Website
 
-![Aura Bank Logo](http://bit.ly/41Y0Nbn)
-
 Aura Bank is a fully responsive and interactive website designed to provide users with a seamless online banking experience. This project includes multiple pages such as the home page, accounts page, loans page, transactions page, and contact page, with good UI/UX and animations.
 
 ### Have a look: https://aurabank.netlify.app/
